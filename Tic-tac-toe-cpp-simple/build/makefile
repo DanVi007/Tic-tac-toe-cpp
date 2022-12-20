@@ -16,15 +16,6 @@ all: $(NAME).exe
 
 $(NAME).exe: $(oFiles)
 	g++ $(cppFiles) -o $(NAME)
- #g++ -c $(cppFiles)
-	#g++ $(oFiles) -o $(NAME)
-
-
-#oFiles: $(cppFiles) 
-#g++ -c $(cppFiles)
-
-
-
 
 clean:
 	$(RM) $(NAME).exe
