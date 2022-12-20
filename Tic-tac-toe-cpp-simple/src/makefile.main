@@ -3,5 +3,6 @@ TicTacToeApp.o: TicTacToeApp.cpp
 	g++ -c TicTacToeApp.cpp
 
 clean:
-	rm *.o
+	cd ui/ && make -f makefile.ui clean
+	del TicTacToeApp.o
 	

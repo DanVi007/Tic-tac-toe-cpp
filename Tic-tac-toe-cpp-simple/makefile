@@ -5,9 +5,11 @@ files := $(call rwildcard,src/,*.o)
 
 TicTacToe: $(files)
 	cd src/ && make -f makefile.main
-	echo $(files)
 	g++ $(files) -o TicTacToe
 
+#rm does not work for some reason 
+#https://stackoverflow.com/questions/33674973/makefile-error-make-e-2-the-system-cannot-find-the-file-specified
 clean:
 	cd src/ && make -f makefile.main clean
+	del TicTacToe.exe
 

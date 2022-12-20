@@ -3,3 +3,7 @@
 
 UI.o: UI.cpp
 	g++ -c UI.cpp
+
+clean:
+	del UI.o
+	del InputReader.o
