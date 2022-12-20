@@ -1,0 +1,7 @@
+TicTacToeApp.o: TicTacToeApp.cpp
+	cd ui/ && make -f makefile.ui
+	g++ -c TicTacToeApp.cpp
+
+clean:
+	rm *.o
+	

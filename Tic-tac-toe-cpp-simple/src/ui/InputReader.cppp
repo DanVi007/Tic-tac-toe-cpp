@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int readInt(const char* message, const int min, const int max) {
+  char buffer[5] = "";
+
+  int number = 0; 
+  bool wrong = false;
+
+  do{
+    wrong = false;
+
+  } while (true);
+}

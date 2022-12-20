@@ -1,0 +1,5 @@
+#InputReader.o: InputReader.cpp
+#	g++ -c InputReader.cpp
+
+UI.o: UI.cpp
+	g++ -c UI.cpp
