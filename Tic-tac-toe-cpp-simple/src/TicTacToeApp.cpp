@@ -3,8 +3,7 @@
 
 using namespace std;
 int main(){
-  cout << "hello worldl " << endl;
-  UI ui;
+  start();
 
   return 0;
 }

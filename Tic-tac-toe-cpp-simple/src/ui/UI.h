@@ -1,10 +1,6 @@
 #ifndef __UI
 #define __UI
-
-class UI {
-  public:
-    UI();
-    ~UI();
-};
-
+#include "../core/Board.h"
+void start();
+void printBoard();
 #endif
