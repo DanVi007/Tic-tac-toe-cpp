@@ -21,7 +21,7 @@ void pvp(){
   board = new Board();
   bool finished = false;
   bool turn = true;
-  while(!finished){
+  while(!finished){ // check if the game has finished instead
     printBoard();
     int xPos;
     int yPos;
