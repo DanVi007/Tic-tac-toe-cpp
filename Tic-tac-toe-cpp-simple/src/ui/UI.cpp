@@ -1,4 +1,6 @@
+#include <exception>
 #include <iostream>
+#include <stdexcept>
 #include "InputReader.h"
 #include "../core/Board.h"
 #include "UI.h"
@@ -6,8 +8,19 @@
 using namespace std;
 Board *board;
 
+void printGuideBoard(){
+  int position =1; 
+  for(int y = 0; y< Board::size;y++) {
+    for(int x = 0; x <Board::size ;x++) {
+      cout << position++ << ",";
+    }
+    cout << endl;
+  }
+  cout << endl;
+}
 void printBoard(){
   char** prettyBoard = board->getPrettyBoard();
+  int position = 1;
   for(int y = 0; y< Board::size;y++) {
     for(int x = 0; x <Board::size ;x++) {
       cout << prettyBoard[x][y] << ",";
@@ -19,22 +32,30 @@ void printBoard(){
 
 void pvp(){
   board = new Board();
-  bool finished = false;
   bool turn = true;
-  while(!finished){ // check if the game has finished instead
-    printBoard();
-    int xPos;
-    int yPos;
-    do {
+  int round = 0;
+  int cord;
+  int score = 0;
+  do {
+    try{
+      printGuideBoard();
+      printBoard();
       cout << (turn ? "P1's " : "P2's ") << "turn" << endl;
-      cout << "Type in cords " << endl;
-      xPos = readInt("Type in xPos: ",1,3) -1 ;
-      yPos = readInt("Type in yPos: ",1,3) -1 ;
+      cord = readInt("Type in cord: ", 1,9); 
+      score = board->setPos(cord, turn);
+      round++;
+      turn = !turn;
+    } catch(invalid_argument& e) {
+      cout << "\n" << e.what() << "\n\n";
+    } 
+  } while(score == 0 && round < 9);
 
-    }while(!board->setPos(xPos,yPos,turn));
-    turn = !turn; 
+  printBoard();
+  if(score == 0){
+    cout << "DRAW!" << endl;
+  } else {
+    cout << (turn ? "P2 " : "P1 ") << "WIN!" << endl;
   }
-  
 }
 
 void start() {

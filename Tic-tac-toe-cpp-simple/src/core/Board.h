@@ -18,7 +18,8 @@ public:
   const char secondPiece = 'O';
   struct cordWrap* getCord();
   char ** getPrettyBoard();
-  bool setPos(const int xPosition, const int yPosition, bool startPlayer); 
+  int setPos(const int cord, bool startPlayer); 
+  int getResult(const int xPosition, const int yPosition);
 };
 
 #endif
